@@ -15,13 +15,13 @@ class Login extends React.Component {
 
   loginOn = async () => {
     const { onLoading, loginInput } = this.props;
-    onLoading();
+    onLoading(true);
     await createUser({ name: loginInput });
-    this.setState(({ redirectStatus: true }));
+    this.setState(({ redirectStatus: true }), () => onLoading(false));
   }
 
   render() {
-    const { loginInput, loginButtonStatus,
+    const { loginInput, buttonStatus,
       onInputChange, loadingStatus } = this.props;
     const { redirectStatus } = this.state;
     if (!loadingStatus) {
@@ -41,7 +41,7 @@ class Login extends React.Component {
           <button
             type="button"
             data-testid="login-submit-button"
-            disabled={ loginButtonStatus }
+            disabled={ buttonStatus }
             onClick={ () => this.loginOn() }
           >
             Entrar
@@ -60,7 +60,7 @@ class Login extends React.Component {
 
 Login.propTypes = {
   loginInput: PropTypes.string.isRequired,
-  loginButtonStatus: PropTypes.bool.isRequired,
+  buttonStatus: PropTypes.bool.isRequired,
   loadingStatus: PropTypes.bool.isRequired,
   onInputChange: PropTypes.func.isRequired,
   onLoading: PropTypes.func.isRequired,

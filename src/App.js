@@ -14,31 +14,46 @@ class App extends React.Component {
 
     this.state = {
       loginInput: '',
-      loginButtonStatus: true,
+      searchInput: '',
+      buttonStatus: true,
       loadingStatus: false,
     };
-
     this.handleChanger = this.handleChanger.bind(this);
-    this.loadingChange = this.loadingChange.bind(this);
+    this.modifyState = this.modifyState.bind(this);
+    this.modifyButtonStatus = this.modifyButtonStatus.bind(this);
+    this.modifyLoadingState = this.modifyLoadingState.bind(this);
   }
 
   handleChanger({ target }) {
-    const numberMaxOfCharacters = 3;
     const { name, value } = target;
-    if (name === 'loginInput') {
-      this.setState(({
-        loginButtonStatus: numberMaxOfCharacters > value.length,
-      }));
-    }
-    this.setState(({
-      [name]: value,
-    }));
+    this.modifyButtonStatus(name, value);
+    this.modifyState(name, value);
   }
 
-  loadingChange() {
-    this.setState((prevState) => ({
-      loadingStatus: !prevState.loadingStatus,
-    }));
+  modifyState(name, value) {
+    this.setState(({ [name]: value }));
+  }
+
+  modifyButtonStatus(name = '', value = '') {
+    if (name === 'loginInput') {
+      const numberMaxOfCharacters = 3;
+      this.setState(({
+        buttonStatus: numberMaxOfCharacters > value.length,
+      }));
+    } else if (name === 'searchInput') {
+      const numberMaxOfCharacters = 2;
+      this.setState(({
+        buttonStatus: numberMaxOfCharacters > value.length,
+      }));
+    } else {
+      this.setState(({
+        buttonStatus: true,
+      }));
+    }
+  }
+
+  modifyLoadingState(status) {
+    this.setState(({ loadingStatus: status }));
   }
 
   render() {
@@ -49,7 +64,9 @@ class App extends React.Component {
             path="/search"
             render={ () => (
               <Search
-                onLoading={ this.loadingChange }
+                onInputChange={ this.handleChanger }
+                onLoading={ this.modifyLoadingState }
+                buttonReset={ this.modifyButtonStatus }
                 { ...this.state }
               />) }
           />
@@ -57,7 +74,7 @@ class App extends React.Component {
             path="/album/:id"
             render={ () => (
               <Album
-                onLoading={ this.loadingChange }
+                onLoading={ this.modifyLoadingState }
                 { ...this.state }
               />) }
           />
@@ -65,7 +82,7 @@ class App extends React.Component {
             path="/favorites"
             render={ () => (
               <Favorites
-                onLoading={ this.loadingChange }
+                onLoading={ this.modifyLoadingState }
                 { ...this.state }
               />) }
           />
@@ -73,7 +90,7 @@ class App extends React.Component {
             path="/profile/edit"
             render={ () => (
               <ProfileEdit
-                onLoading={ this.loadingChange }
+                onLoading={ this.modifyLoadingState }
                 { ...this.state }
               />) }
           />
@@ -81,7 +98,7 @@ class App extends React.Component {
             path="/profile"
             render={ () => (
               <Profile
-                onLoading={ this.loadingChange }
+                onLoading={ this.modifyLoadingState }
                 { ...this.state }
               />) }
           />
@@ -91,7 +108,7 @@ class App extends React.Component {
               <Login
                 { ...this.state }
                 onInputChange={ this.handleChanger }
-                onLoading={ this.loadingChange }
+                onLoading={ this.modifyLoadingState }
               />
             ) }
           />

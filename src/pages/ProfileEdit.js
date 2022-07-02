@@ -5,7 +5,7 @@ import Header from '../components/Header';
 class ProfileEdit extends React.Component {
   componentDidMount() {
     const { onLoading } = this.props;
-    onLoading();
+    onLoading(true);
   }
 
   render() {

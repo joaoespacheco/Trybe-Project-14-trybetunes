@@ -3,54 +3,31 @@ import PropTypes from 'prop-types';
 import Header from '../components/Header';
 
 class Search extends React.Component {
-  constructor() {
-    super();
-
-    this.state = {
-      valueOfSearch: '',
-      statusOfButton: true,
-    };
-
-    this.handleChanger = this.handleChanger.bind(this);
-  }
-
   componentDidMount() {
-    const { onLoading } = this.props;
-    onLoading();
-  }
-
-  handleChanger({ target }) {
-    const numberMaxOfCharacters = 2;
-    const { name, value } = target;
-    if (name === 'valueOfSearch') {
-      this.setState({
-        statusOfButton: numberMaxOfCharacters > value.length,
-      });
-    }
-    this.setState({
-      [name]: value,
-    });
+    const { onLoading, buttonReset } = this.props;
+    onLoading(true);
+    buttonReset();
   }
 
   render() {
-    const { statusOfButton, valueOfSearch } = this.state;
+    const { searchInput, buttonStatus, onInputChange } = this.props;
     return (
       <div data-testid="page-search">
         <Header { ...this.props } />
         <div>
           <label htmlFor="input-search">
             <input
-              name="valueOfSearch"
+              name="searchInput"
               type="text"
-              value={ valueOfSearch }
+              value={ searchInput }
               data-testid="search-artist-input"
               placeholder="Nome do Artista"
-              onChange={ this.handleChanger }
+              onChange={ onInputChange }
             />
           </label>
           <button
             data-testid="search-artist-button"
-            disabled={ statusOfButton }
+            disabled={ buttonStatus }
             type="button"
           >
             Pesquisar
@@ -62,8 +39,11 @@ class Search extends React.Component {
 }
 
 Search.propTypes = {
+  searchInput: PropTypes.string.isRequired,
+  buttonStatus: PropTypes.bool.isRequired,
   onLoading: PropTypes.func.isRequired,
-  loadingStatus: PropTypes.bool.isRequired,
+  onInputChange: PropTypes.func.isRequired,
+  buttonReset: PropTypes.func.isRequired,
 };
 
 export default Search;

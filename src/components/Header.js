@@ -19,7 +19,7 @@ class Header extends React.Component {
     const { onLoading } = this.props;
     const storageUser = await getUser();
     const { name } = storageUser;
-    this.setState({ user: name }, () => onLoading());
+    this.setState({ user: name }, () => onLoading(false));
   }
 
   redirectActive = ({ target }) => {
