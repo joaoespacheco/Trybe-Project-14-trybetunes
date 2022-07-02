@@ -50,12 +50,41 @@ class App extends React.Component {
             render={ () => (
               <Search
                 onLoading={ this.loadingChange }
+                { ...this.state }
               />) }
           />
-          <Route path="/album/:id" render={ (props) => <Album { ...props } /> } />
-          <Route path="/favorites" component={ Favorites } />
-          <Route path="/profile/edit" component={ ProfileEdit } />
-          <Route path="/profile" component={ Profile } />
+          <Route
+            path="/album/:id"
+            render={ () => (
+              <Album
+                onLoading={ this.loadingChange }
+                { ...this.state }
+              />) }
+          />
+          <Route
+            path="/favorites"
+            render={ () => (
+              <Favorites
+                onLoading={ this.loadingChange }
+                { ...this.state }
+              />) }
+          />
+          <Route
+            path="/profile/edit"
+            render={ () => (
+              <ProfileEdit
+                onLoading={ this.loadingChange }
+                { ...this.state }
+              />) }
+          />
+          <Route
+            path="/profile"
+            render={ () => (
+              <Profile
+                onLoading={ this.loadingChange }
+                { ...this.state }
+              />) }
+          />
           <Route
             path="/"
             render={ () => (
