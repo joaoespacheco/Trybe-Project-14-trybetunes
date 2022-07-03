@@ -67,6 +67,7 @@ class App extends React.Component {
                 onInputChange={ this.handleChanger }
                 onLoading={ this.modifyLoadingState }
                 buttonReset={ this.modifyButtonStatus }
+                modifyState={ this.modifyState }
                 { ...this.state }
               />) }
           />
