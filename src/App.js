@@ -73,10 +73,11 @@ class App extends React.Component {
           />
           <Route
             path="/album/:id"
-            render={ () => (
+            render={ (props) => (
               <Album
                 onLoading={ this.modifyLoadingState }
                 { ...this.state }
+                { ...props }
               />) }
           />
           <Route
