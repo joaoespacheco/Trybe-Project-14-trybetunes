@@ -27,7 +27,6 @@ class Search extends React.Component {
     const { searchInput, modifyState } = this.props;
     this.setState(({ loadingSearch: true }));
     const albuns = await searchAlbumsAPI(searchInput);
-    console.log(albuns);
     this.setState(({
       loadingSearch: false,
       albumSearch: albuns,

@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
 import MusicCard from '../components/MusicCard';
 import Loading from '../components/Loading';
-import { addSong } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 
 class Album extends React.Component {
   constructor() {
@@ -13,34 +13,46 @@ class Album extends React.Component {
     this.state = {
       album: [],
       loadingAlbum: false,
-      checkedSongs: [],
+      favoriteSongs: [],
     };
   }
 
-  async componentDidMount() {
+  componentDidMount() {
     const {
       onLoading,
       match: {
         params: { id },
       },
     } = this.props;
+    this.modifyLoadingAlbum(true);
     onLoading(true);
+    this.storageGetMusic(id);
+    this.storageGetFavorite();
+    this.modifyLoadingAlbum(false);
+  }
+
+  storageGetMusic = async (id) => {
     const albumData = await getMusics(id);
     this.setState({ album: albumData });
+  }
+
+  storageGetFavorite = async () => {
+    const favorites = await getFavoriteSongs();
+    this.setState({ favoriteSongs: favorites });
   }
 
   modifyLoadingAlbum = (status) => {
     this.setState({ loadingAlbum: status });
   };
 
-  favoriteMusic = async ({ target }) => {
+  favoritesChange = async ({ target }) => {
     const { name } = target;
     const { album } = this.state;
     this.modifyLoadingAlbum(true);
     const song = album.slice(1).find(({ trackId }) => trackId === Number(name));
     await addSong(song);
     this.setState((estadoAnterior) => ({
-      checkedSongs: [...estadoAnterior.checkedSongs, name],
+      favoriteSongs: [...estadoAnterior.favoriteSongs, song],
     }));
     this.modifyLoadingAlbum(false);
   };
@@ -58,7 +70,7 @@ class Album extends React.Component {
               <MusicCard
                 { ...this.state }
                 albumStatusLoading={ this.modifyLoadingAlbum }
-                favoriteMusic={ this.favoriteMusic }
+                favoritesChange={ this.favoritesChange }
               />
             ) : (
               ''
