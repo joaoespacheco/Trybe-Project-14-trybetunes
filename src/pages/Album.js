@@ -4,7 +4,7 @@ import Header from '../components/Header';
 import getMusics from '../services/musicsAPI';
 import MusicCard from '../components/MusicCard';
 import Loading from '../components/Loading';
-import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 
 class Album extends React.Component {
   constructor() {
@@ -46,15 +46,24 @@ class Album extends React.Component {
   };
 
   favoritesChange = async ({ target }) => {
-    const { name } = target;
+    const { name, checked } = target;
     const { album } = this.state;
-    this.modifyLoadingAlbum(true);
     const song = album.slice(1).find(({ trackId }) => trackId === Number(name));
-    await addSong(song);
-    this.setState((estadoAnterior) => ({
-      favoriteSongs: [...estadoAnterior.favoriteSongs, song],
-    }));
-    this.modifyLoadingAlbum(false);
+    if (checked === true) {
+      this.modifyLoadingAlbum(true);
+      await addSong(song);
+      this.setState((estadoAnterior) => ({
+        favoriteSongs: [...estadoAnterior.favoriteSongs, song],
+      }));
+      this.modifyLoadingAlbum(false);
+    } else if (checked === false) {
+      this.modifyLoadingAlbum(true);
+      await removeSong(song);
+      this.setState(({
+        favoriteSongs: [...await getFavoriteSongs()],
+      }));
+      this.modifyLoadingAlbum(false);
+    }
   };
 
   render() {
