@@ -53,7 +53,7 @@ class Search extends React.Component {
     const { searchInput, buttonStatus, onInputChange } = this.props;
     const { statusOfSearch, loadingSearch, albumSearch } = this.state;
     return (
-      <div data- testid="page-search">
+      <div data-testid="page-search">
         <Header { ...this.props } />
         {!loadingSearch ? (
           <div>

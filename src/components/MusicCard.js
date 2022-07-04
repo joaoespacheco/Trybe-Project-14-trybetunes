@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 class MusicCard extends React.Component {
   render() {
-    const { album } = this.props;
+    const { album, favoriteMusic, checkedSongs } = this.props;
     const { artworkUrl100, artistName, collectionName } = album[0];
     return (
       <section>
@@ -13,17 +13,28 @@ class MusicCard extends React.Component {
           <h3 data-testid="artist-name">{artistName}</h3>
         </div>
         <div>
-          {album.slice(1).map(({ trackName, previewUrl }, index) => (
-            <div key={ trackName + index }>
+          {album.slice(1).map(({ trackName, previewUrl, trackId }) => (
+            <div key={ trackId }>
               <p>{trackName}</p>
               <audio data-testid="audio-component" src={ previewUrl } controls>
                 <track kind="captions" />
                 O seu navegador não suporta o elemento
                 {' '}
-                {' '}
                 <code>audio</code>
                 .
               </audio>
+              <label
+                htmlFor={ trackId }
+              >
+                Favorita
+                <input
+                  data-testid={ `checkbox-music-${trackId}` }
+                  name={ trackId }
+                  type="checkbox"
+                  onChange={ (event) => favoriteMusic(event) }
+                  checked={ checkedSongs.some((songId) => Number(songId) === trackId) }
+                />
+              </label>
             </div>
           ))}
         </div>
@@ -34,6 +45,8 @@ class MusicCard extends React.Component {
 
 MusicCard.propTypes = {
   album: PropTypes.arrayOf(PropTypes.object).isRequired,
+  favoriteMusic: PropTypes.func.isRequired,
+  checkedSongs: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default MusicCard;
