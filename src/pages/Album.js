@@ -49,14 +49,14 @@ class Album extends React.Component {
     const { name, checked } = target;
     const { album } = this.state;
     const song = album.slice(1).find(({ trackId }) => trackId === Number(name));
-    if (checked === true) {
+    if (checked) {
       this.modifyLoadingAlbum(true);
       await addSong(song);
       this.setState((estadoAnterior) => ({
         favoriteSongs: [...estadoAnterior.favoriteSongs, song],
       }));
       this.modifyLoadingAlbum(false);
-    } else if (checked === false) {
+    } else {
       this.modifyLoadingAlbum(true);
       await removeSong(song);
       this.setState(({
@@ -76,11 +76,19 @@ class Album extends React.Component {
         ) : (
           <section>
             {album.length > 0 ? (
-              <MusicCard
-                { ...this.state }
-                albumStatusLoading={ this.modifyLoadingAlbum }
-                favoritesChange={ this.favoritesChange }
-              />
+              <section>
+                <div>
+                  <img src={ album[0].artworkUrl100 } alt="Capa do Album" />
+                  <h3 data-testid="album-name">{album[0].collectionName}</h3>
+                  <h3 data-testid="artist-name">{album[0].artistName}</h3>
+                </div>
+                <MusicCard
+                  { ...this.state }
+                  albumStatusLoading={ this.modifyLoadingAlbum }
+                  favoritesChange={ this.favoritesChange }
+                  songs={ album.slice(1) }
+                />
+              </section>
             ) : (
               ''
             )}
