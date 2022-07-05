@@ -15,7 +15,11 @@ class Header extends React.Component {
     };
   }
 
-  async componentDidMount() {
+  componentDidMount() {
+    this.getStorageUser();
+  }
+
+  getStorageUser = async () => {
     const { onLoading } = this.props;
     const storageUser = await getUser();
     const { name } = storageUser;

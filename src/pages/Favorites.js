@@ -18,9 +18,9 @@ class Favorites extends React.Component {
   componentDidMount() {
     const { onLoading } = this.props;
     onLoading(true);
-    this.modifyLoadingAlbum(true);
+    this.modifyLoadingFavorites(true);
     this.storageGetFavorite();
-    this.modifyLoadingAlbum(false);
+    this.modifyLoadingFavorites(false);
   }
 
   storageGetFavorite = async () => {
@@ -28,20 +28,20 @@ class Favorites extends React.Component {
     this.setState({ favoriteSongs: favorites });
   };
 
-  modifyLoadingAlbum = (status) => {
+  modifyLoadingFavorites = (status) => {
     this.setState({ loadingFavorites: status });
   };
 
   favoritesChange = async ({ target }) => {
     const { name } = target;
     const { favoriteSongs } = this.state;
-    this.modifyLoadingAlbum(true);
+    this.modifyLoadingFavorites(true);
     const song = favoriteSongs.find(({ trackId }) => trackId === Number(name));
     await removeSong(song);
     this.setState({
       favoriteSongs: [...(await getFavoriteSongs())],
     });
-    this.modifyLoadingAlbum(false);
+    this.modifyLoadingFavorites(false);
   };
 
   render() {
