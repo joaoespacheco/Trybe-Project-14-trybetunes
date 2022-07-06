@@ -30,12 +30,12 @@ class ProfileEdit extends React.Component {
     this.modifyLoadingEdit(true);
     const storageUser = await getUser();
     const { name, email, description, image } = storageUser;
-    this.setState({
+    this.setState(({
       name,
       email,
       description,
       image,
-    });
+    }), () => this.modifyButtonStatus());
     this.modifyLoadingEdit(false);
   };
 
