@@ -90,8 +90,9 @@ class App extends React.Component {
           />
           <Route
             path="/profile/edit"
-            render={ () => (
+            render={ (props) => (
               <ProfileEdit
+                { ...props }
                 onLoading={ this.modifyLoadingState }
                 { ...this.state }
               />) }

@@ -42,25 +42,25 @@ class Profile extends React.Component {
           <Loading />
         ) : (
           <section>
-            <img
-              src={ image }
-              alt="Foto do usúario"
-              data-testid="profile-image"
-            />
-            <h3>
-              {name}
-            </h3>
-            <h3>
-              {email}
-            </h3>
-            <h4>
-              {description}
-            </h4>
-            <Link
-              to="/profile/edit"
-            >
-              Editar perfil
-            </Link>
+            <div>
+              <img
+                src={ image }
+                alt="Foto do usúario"
+                data-testid="profile-image"
+              />
+              <h3>
+                {name}
+              </h3>
+              <h3>
+                {email}
+              </h3>
+              <h4>
+                {description}
+              </h4>
+            </div>
+            <div>
+              <Link to="/profile/edit">Editar perfil</Link>
+            </div>
           </section>
         )}
       </div>
