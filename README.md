@@ -17,8 +17,9 @@ Nessas áreas o usuário poderá:
 > * Ver a lista de músicas favoritas
 > * Ver o perfil da pessoa logada
 > * Editar o perfil da pessoa logada
+</br>
 
-Todos os dados das musicas foram obtidos através da <strong>API da Apple Music</strong>.
+Todos os dados das musicas utilizados foram obtidos através da <strong>API da Apple Music</strong>.
 
 </br>
 <details>
