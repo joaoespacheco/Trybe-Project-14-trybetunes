@@ -19,7 +19,7 @@ Nessas áreas o usuário poderá:
 > * Editar o perfil da pessoa logada
 </br>
 
-Todos os dados das musicas utilizados foram obtidos através da <strong>API da Apple Music</strong>.
+Todos os dados utilizados das musicas foram obtidos através da <strong>API da Apple Music</strong>.
 
 </br>
 <details>
