@@ -6,7 +6,7 @@ Projeto desenvolvido durante o módulo de front-end do curso de desenvolvimento 
 
 Nesse projeto foi desenvolvida uma aplicação para ouvir músicas, o projeto conta com diversas rotas que levam o usuário a áreas distintas na aplicação.
 </br>
-</br>
+
 Nessas áreas o usuário poderá:
 > * Realizar login
 > * Pesquisar por uma banda ou artista
@@ -17,11 +17,10 @@ Nessas áreas o usuário poderá:
 > * Ver a lista de músicas favoritas
 > * Ver o perfil da pessoa logada
 > * Editar o perfil da pessoa logada
-</br>
-Todos os dados das musicas foram obtidos através da <strong>API da Apple Music</strong>.
-</br>
-</br>
 
+Todos os dados das musicas foram obtidos através da <strong>API da Apple Music</strong>.
+
+</br>
 <details>
 <summary><strong>Desempenho</strong></summary>
 Aprovado com 100% de desempenho em todos os requisitos
@@ -55,6 +54,7 @@ Aprovado com 100% de desempenho em todos os requisitos
 <summary><strong>Visualizar projeto</strong></summary>
 :construction: Área em construção ! :construction:
 </details>
+</br>
 
 ## 🤹🏽 Habilidades Desenvolvidas:
 * Desenvolver uma aplicação react
@@ -62,7 +62,7 @@ Aprovado com 100% de desempenho em todos os requisitos
 * Fazer requisições e consumir dados vindos de uma API
 * Utilizar <strong>React Router</strong>
 * Criar múltiplas páginas e rotas
-
+</br>
 
 ## 🧰 Ferramentas:
 * HTML
@@ -70,7 +70,7 @@ Aprovado com 100% de desempenho em todos os requisitos
 * JavaScript
 * React
   * React Router
+</br>
 
 ## 📝 Desenvolvido por:
 * [João Emanuel Soares Pacheco](https://github.com/joaoespacheco)
-
