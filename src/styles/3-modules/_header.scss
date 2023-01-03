@@ -1,0 +1,12 @@
+@import '../1-base/variables';
+
+.header-container {
+  display: flex;
+  padding: 1rem;
+  justify-content: space-between;
+  background-color: $second-color;
+
+  div {
+    display: flex;
+  }
+}

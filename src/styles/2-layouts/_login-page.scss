@@ -12,7 +12,7 @@ align-items: center;
     align-items: center;
     row-gap: 1.5rem;
     background-color: $second-color;
-    padding: 1.5rem;
+    padding: 2.5rem;
     border-radius: 1rem;
     position: relative;
     transition: .5s cubic-bezier(1, 0, 0.2, 1);
@@ -40,18 +40,21 @@ align-items: center;
 
     >div {
       display: flex;
+      justify-content: center;
+      align-items: center;
       width: 100%;
       column-gap: 1rem;
 
       label {
         flex-grow: 2;
+        background-color: $second-color;
 
         p {
           position: absolute;
           background-color: $second-color;
           font-size: 1.5rem;
           color: $white-color;
-          top: 11.6rem;
+          top: 12.7rem;
           left: 4rem;
           padding: 0 0.1rem;
         }
@@ -64,7 +67,17 @@ align-items: center;
           border: .2rem solid $white-color;
           border-radius: 1rem;
           padding: 0.5rem 1rem;
-          background: none;
+          background-color: $second-color;
+
+
+        }
+      
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        input:-webkit-autofill:active {
+          -webkit-box-shadow: 0 0 0 30px $second-color inset !important;
+          -webkit-text-fill-color: $white-color !important;
         }
       }
   
@@ -89,8 +102,18 @@ align-items: center;
           font-size: 2.5rem;
         }
       }
-
     }
+  }
 
+  .loading-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+      
+    p {
+      color: $white-color;
+      font-size: 1.5rem;
+    }
   }
 }

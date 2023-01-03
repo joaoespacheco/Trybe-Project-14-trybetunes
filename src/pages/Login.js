@@ -13,16 +13,29 @@ class Login extends React.Component {
     };
   }
 
+  componentDidMount() {
+    const { modifyState } = this.props;
+    modifyState('loginInput', '');
+  }
+
+  componentWillUnmount() {
+    const { onLoading } = this.props;
+    onLoading(false);
+  }
+
   loginOn = async () => {
     const { onLoading, loginInput } = this.props;
     onLoading(true);
     await createUser({ name: loginInput });
-    this.setState(({ redirectStatus: true }), () => onLoading(false));
+    this.setState(({ redirectStatus: true }));
   }
 
   render() {
-    const { loginInput, buttonStatus,
-      onInputChange, loadingStatus } = this.props;
+    const {
+      loginInput,
+      buttonStatus,
+      onInputChange,
+      loadingStatus } = this.props;
     const { redirectStatus } = this.state;
     if (!loadingStatus) {
       return (
@@ -55,7 +68,7 @@ class Login extends React.Component {
       );
     }
     return (
-      <main>
+      <main className="login-container">
         <Loading />
         { redirectStatus ? <Redirect to="/search" /> : ''}
       </main>
@@ -69,6 +82,7 @@ Login.propTypes = {
   loadingStatus: PropTypes.bool.isRequired,
   onInputChange: PropTypes.func.isRequired,
   onLoading: PropTypes.func.isRequired,
+  modifyState: PropTypes.func.isRequired,
 };
 
 export default Login;

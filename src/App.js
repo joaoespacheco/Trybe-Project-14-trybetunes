@@ -112,6 +112,7 @@ class App extends React.Component {
                 { ...this.state }
                 onInputChange={ this.handleChanger }
                 onLoading={ this.modifyLoadingState }
+                modifyState={ this.modifyState }
               />
             ) }
           />

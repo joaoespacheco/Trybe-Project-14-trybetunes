@@ -18,8 +18,7 @@ class Search extends React.Component {
   }
 
   componentDidMount() {
-    const { onLoading, buttonReset } = this.props;
-    onLoading(true);
+    const { buttonReset } = this.props;
     buttonReset();
   }
 
@@ -55,7 +54,7 @@ class Search extends React.Component {
       <div data-testid="page-search">
         <Header { ...this.props } />
         {!loadingSearch ? (
-          <div>
+          <main>
             <label htmlFor="input-search">
               <input
                 name="searchInput"
@@ -74,12 +73,14 @@ class Search extends React.Component {
             >
               Pesquisar
             </button>
-          </div>
+            { statusOfSearch ? this.searchResponse(albumSearch) : '' }
+            { statusOfSearch ? <Albuns artistAlbuns={ albumSearch } /> : '' }
+          </main>
         ) : (
-          <Loading />
+          <main>
+            <Loading />
+          </main>
         )}
-        { statusOfSearch ? this.searchResponse(albumSearch) : '' }
-        { statusOfSearch ? <Albuns artistAlbuns={ albumSearch } /> : '' }
       </div>
     );
   }
