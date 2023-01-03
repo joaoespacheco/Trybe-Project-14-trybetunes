@@ -1,0 +1,38 @@
+html {
+  font-size: 16px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: serif;
+  font-size: 1rem;
+}
+
+main {
+  background-color: $primary-color;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+  transition: .4s;
+  
+  &:hover {
+    color: #000;
+  }
+}
+
+input {
+  outline: none;
+  border: 1.5px solid #000
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+}
