@@ -1,32 +1,33 @@
 .cards-container {
-  width: 100%;
+  column-gap: 1rem;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   justify-items: center;
-  column-gap: 1rem;
-  row-gap: 1rem;
-  flex-wrap: wrap;
   padding-bottom: 3rem;
+  row-gap: 1rem;
+  width: 100%;
 
   &-content {
 
     .cards-content {
+      align-items: center;
+      border: 0.1rem solid $third-color;
+      box-shadow: 0 0 0.5rem $third-color;
+      border-radius: 0.5rem;
       display: flex;
-      width: 30rem;
       height: 10rem;
       justify-content: left;
-      align-items: center;
-      border: 0.1rem solid transparent;
-      border-bottom-right-radius: 1rem;
-      border-top-right-radius: 1rem;
       opacity: 0.8;
+      padding: 0.5rem;
       transition: .4s;
+      width: 30rem;
 
       &:hover {
+        background-color: $third-color;
         border: 0.1rem solid $white-color;
-        border-bottom-right-radius: 1rem;
-        border-top-right-radius: 1rem;
-        box-shadow: 0 0 0.6rem $third-color;
+        border-radius: 1rem;
+        box-shadow: 0 0 1rem $third-color;
         opacity: 1;
       }
 
@@ -42,9 +43,6 @@
 
       &-informations {
         align-items: flex-start;
-        background-color: $third-color;
-        border-bottom-right-radius: 1rem;
-        border-top-right-radius: 1rem;
         display: flex;
         flex-direction: column;
         height: 100%;
@@ -60,7 +58,7 @@
 
         h3 {
           font-size: 1rem;
-          color: $black-color;
+          color: $white-color;
         }
       }
     }

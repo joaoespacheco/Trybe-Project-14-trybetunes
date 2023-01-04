@@ -71,29 +71,31 @@ class Album extends React.Component {
     return (
       <div data-testid="page-album">
         <Header { ...this.props } />
-        {loadingAlbum ? (
-          <Loading />
-        ) : (
-          <section>
-            {album.length > 0 ? (
-              <section>
+        <main className="album-container">
+          {loadingAlbum ? (
+            <Loading />
+          ) : (
+            <section>
+              {album.length > 0 ? (
                 <div>
-                  <img src={ album[0].artworkUrl100 } alt="Capa do Album" />
-                  <h3 data-testid="album-name">{album[0].collectionName}</h3>
-                  <h3 data-testid="artist-name">{album[0].artistName}</h3>
+                  <div>
+                    <img src={ album[0].artworkUrl100 } alt="Capa do Album" />
+                    <h3 data-testid="album-name">{album[0].collectionName}</h3>
+                    <h3 data-testid="artist-name">{album[0].artistName}</h3>
+                  </div>
+                  <MusicCard
+                    { ...this.state }
+                    albumStatusLoading={ this.modifyLoadingAlbum }
+                    favoritesChange={ this.favoritesChange }
+                    songs={ album.slice(1) }
+                  />
                 </div>
-                <MusicCard
-                  { ...this.state }
-                  albumStatusLoading={ this.modifyLoadingAlbum }
-                  favoritesChange={ this.favoritesChange }
-                  songs={ album.slice(1) }
-                />
-              </section>
-            ) : (
-              ''
-            )}
-          </section>
-        )}
+              ) : (
+                ''
+              )}
+            </section>
+          )}
+        </main>
       </div>
     );
   }
