@@ -4,9 +4,83 @@
   display: flex;
   padding: 1rem;
   justify-content: space-between;
+  align-items: center;
   background-color: $second-color;
+  border-bottom: 0.1rem solid $white-color;
+  flex-grow: 1;
+  transition: 1s;
 
-  div {
+  &:hover {
+    border-bottom: 0.1rem solid $third-color;
+  }
+
+  nav {
     display: flex;
+    column-gap: 0.5rem;
+    width: 100%;
+
+    button {
+      width: 7rem;
+      font-size: 1.5rem;
+      padding: 0.4rem 0;
+      border-radius: 0.5rem;
+      background-color: $third-color;
+      border: 0.1rem solid $third-color;
+      color: $white-color;
+
+      &:hover {
+        border: 0.1rem solid $white-color;
+      }
+    }
+  }
+
+  &-title {
+    text-align: center;
+    width: 100%;
+
+    h1 {
+      color: $third-color;
+      font-size: 3rem;
+      text-shadow: 0rem 0rem 0.2rem $white-color;
+      transition: .2s;
+    }
+  }
+
+  &-logout {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    column-gap: 0.5rem;
+    width: 100%;
+
+    p {
+      color: $white-color;
+      font-size: 1.5rem;
+    }
+
+    .loading-container {
+      .spinner {
+        width: 3rem;
+        height: 3rem;
+      }
+
+      p {
+        display: none;
+      }
+    }
+
+    button {
+      width: 7rem;
+      font-size: 1.5rem;
+      padding: 0.4rem 0;
+      border-radius: 0.5rem;
+      background-color: $third-color;
+      border: 0.1rem solid $third-color;
+      color: $white-color;
+
+      &:hover {
+        border: 0.1rem solid $white-color;
+      }
+    }
   }
 }

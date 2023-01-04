@@ -2,6 +2,7 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { getUser } from '../services/userAPI';
+import Loading from './Loading';
 
 class Header extends React.Component {
   constructor() {
@@ -44,7 +45,7 @@ class Header extends React.Component {
             type="button"
             onClick={ (event) => this.redirectActive(event) }
           >
-            Search
+            Home
           </button>
           <button
             data-testid="link-to-favorites"
@@ -63,8 +64,15 @@ class Header extends React.Component {
             Profile
           </button>
         </nav>
-        <div>
-          <h1 data-testid="header-user-name">{user}</h1>
+        <div className="header-container-title">
+          <h1>TrybeTunes</h1>
+        </div>
+        <div className="header-container-logout">
+          {user === '' ? (
+            <Loading />
+          ) : (
+            <p data-testid="header-user-name">{`Bem vindo, ${user}`}</p>
+          )}
           <button
             type="button"
             name=""
