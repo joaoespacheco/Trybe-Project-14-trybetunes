@@ -1,0 +1,47 @@
+.album-content-cards {
+  display: flex;
+  flex-direction: column;
+  row-gap: 0.5rem;
+  width: 100%;
+
+  >div {
+    width: 50rem;
+    align-items: center;
+    border: 0.1rem solid $third-color;
+    box-shadow: 0 0 0.5rem $third-color;
+    border-radius: 0.5rem;
+    display: flex;
+    justify-content: left;
+    opacity: 0.8;
+    padding: 0.5rem;
+    transition: .4s;
+
+    &:hover {
+      opacity: 1;
+      background-color: $third-color;
+      border: 0.1rem solid $white-color;
+      border-radius: 1rem;
+      box-shadow: 0 0 1rem $third-color;
+    }
+
+    div {
+      width: 30rem;
+        p {
+          padding: 0.15rem;
+          font-size: 1.25rem;
+          color: $white-color;
+        }
+
+        label {
+          display: flex;
+          padding: 0.15rem;
+          font-size: 1rem;
+          color: $white-color;
+        }
+    }
+
+    audio {
+      width: 20rem;
+    }
+  }
+}

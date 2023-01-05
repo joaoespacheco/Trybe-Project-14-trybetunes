@@ -34,7 +34,6 @@
       align-items: center;
       width: 40rem;
       padding: 1rem;
-      row-gap: 2rem;
 
       >div {
         display: flex;
@@ -44,6 +43,7 @@
         flex-wrap: wrap;
         row-gap: 1.5rem;
         width: 100%;
+        min-height: 15rem;
   
         h3 {
           font-size: 1.5rem;
@@ -68,7 +68,7 @@
       a {
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: flex-end;
         text-align: center;
         width: 100%;
         align-self: center;
@@ -89,9 +89,6 @@
       }
     }
   }
-
-
-
 
   .loading-container {
     display: flex;

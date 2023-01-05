@@ -58,11 +58,11 @@ class Profile extends React.Component {
                     {`Nome: ${name}`}
                   </h3>
                   <h3>
-                    {`Email: ${email}`}
+                    {`Email: ${email || 'email não cadastrado'}`}
                   </h3>
                   <div>
                     <p>Sobre mim:</p>
-                    <h4>{description}</h4>
+                    <h4>{description || 'Não há descrição sobre você'}</h4>
                   </div>
                 </div>
                 <Link to="/profile/edit">

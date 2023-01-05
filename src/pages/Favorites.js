@@ -49,23 +49,25 @@ class Favorites extends React.Component {
     return (
       <div data-testid="page-favorites">
         <Header { ...this.props } />
-        {loadingFavorites ? (
-          <Loading />
-        ) : (
-          <section>
-            <h2>Músicas Favoritas:</h2>
-            {favoriteSongs.length > 0 ? (
-              <MusicCard
-                { ...this.state }
-                albumStatusLoading={ this.modifyLoadingAlbum }
-                favoritesChange={ this.favoritesChange }
-                songs={ favoriteSongs }
-              />
-            ) : (
-              <h3>Não há músicas favoritas</h3>
-            )}
-          </section>
-        )}
+        <main className="favorites-container">
+          <h1>Músicas Favoritas</h1>
+          {loadingFavorites ? (
+            <Loading />
+          ) : (
+            <section>
+              {favoriteSongs.length > 0 ? (
+                <MusicCard
+                  { ...this.state }
+                  albumStatusLoading={ this.modifyLoadingAlbum }
+                  favoritesChange={ this.favoritesChange }
+                  songs={ favoriteSongs }
+                />
+              ) : (
+                <p>Não há músicas favoritas</p>
+              )}
+            </section>
+          )}
+        </main>
       </div>
     );
   }
