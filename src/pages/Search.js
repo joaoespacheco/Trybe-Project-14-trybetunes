@@ -76,7 +76,11 @@ class Search extends React.Component {
           </div>
           {!loadingSearch ? (
             <div className="search-container-albuns">
-              { statusOfSearch ? this.searchResponse(albumSearch) : '' }
+              { statusOfSearch ? (
+                this.searchResponse(albumSearch)
+              ) : (
+                <h2>Não foram realizadas buscas até o momento</h2>
+              )}
               { statusOfSearch ? <Albuns artistAlbuns={ albumSearch } /> : '' }
             </div>
           ) : (

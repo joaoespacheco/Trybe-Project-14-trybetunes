@@ -20,12 +20,11 @@ class Favorites extends React.Component {
     onLoading(true);
     this.modifyLoadingFavorites(true);
     this.storageGetFavorite();
-    this.modifyLoadingFavorites(false);
   }
 
   storageGetFavorite = async () => {
     const favorites = await getFavoriteSongs();
-    this.setState({ favoriteSongs: favorites });
+    this.setState({ favoriteSongs: favorites }, () => this.modifyLoadingFavorites(false));
   };
 
   modifyLoadingFavorites = (status) => {

@@ -13,6 +13,14 @@
     box-shadow: 0 0 1rem $third-color;
     padding: 2rem;
 
+    &:hover {
+
+      .profile-informations-content {
+        text-shadow: 0 0 0.25rem $third-color;
+      }
+
+    }
+
     .profile-image-content {
       display: flex;
       justify-content: center;
@@ -50,12 +58,12 @@
         padding: 0.5rem;
   
         h3 {
-          font-size: 1.5rem;
+          font-size: 2rem;
           color: $white-color;
           font-weight: 100;
 
           span {
-            font-size: 1.5rem;
+            font-size: 2rem;
             font-weight: 600;
           }
         }
@@ -63,7 +71,7 @@
         div {
           width: 100%;
           p {
-            font-size: 1.5rem;
+            font-size: 2rem;
             color: $white-color;
             padding-bottom: 0.4rem;
             font-weight: 600;
@@ -71,7 +79,7 @@
   
           h4 {
             font-weight: 100;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: $white-color;
           }
         }
