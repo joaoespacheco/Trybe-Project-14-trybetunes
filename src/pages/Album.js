@@ -28,7 +28,7 @@ class Album extends React.Component {
     onLoading(true);
     this.storageGetMusic(id);
     this.storageGetFavorite();
-    this.modifyLoadingAlbum(false);
+    window.scrollTo(0, 0);
   }
 
   storageGetMusic = async (id) => {
@@ -38,7 +38,7 @@ class Album extends React.Component {
 
   storageGetFavorite = async () => {
     const favorites = await getFavoriteSongs();
-    this.setState({ favoriteSongs: favorites });
+    this.setState({ favoriteSongs: favorites }, () => this.modifyLoadingAlbum(false));
   }
 
   modifyLoadingAlbum = (status) => {
