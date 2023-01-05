@@ -24,6 +24,7 @@
       
       img {
         height: 100%;
+        width: 20rem;
       }
     }
 
@@ -34,20 +35,29 @@
       align-items: center;
       width: 40rem;
       padding: 1rem;
+      row-gap: 1rem;
 
       >div {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: flex-start;
+        border-radius: 0.5rem;
         flex-wrap: wrap;
         row-gap: 1.5rem;
         width: 100%;
         min-height: 15rem;
+        padding: 0.5rem;
   
         h3 {
           font-size: 1.5rem;
           color: $white-color;
+          font-weight: 100;
+
+          span {
+            font-size: 1.5rem;
+            font-weight: 600;
+          }
         }
   
         div {
@@ -56,9 +66,11 @@
             font-size: 1.5rem;
             color: $white-color;
             padding-bottom: 0.4rem;
+            font-weight: 600;
           }
   
           h4 {
+            font-weight: 100;
             font-size: 1.5rem;
             color: $white-color;
           }

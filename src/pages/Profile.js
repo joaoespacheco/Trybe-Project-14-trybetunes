@@ -55,10 +55,14 @@ class Profile extends React.Component {
               <div className="profile-informations-content">
                 <div>
                   <h3>
-                    {`Nome: ${name}`}
+                    <span>Nome:</span>
+                    {' '}
+                    {name}
                   </h3>
                   <h3>
-                    {`Email: ${email || 'email não cadastrado'}`}
+                    <span>Email:</span>
+                    {' '}
+                    {email || 'email não cadastrado'}
                   </h3>
                   <div>
                     <p>Sobre mim:</p>

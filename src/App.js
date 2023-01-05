@@ -107,6 +107,7 @@ class App extends React.Component {
           />
           <Route
             path="/"
+            exact
             render={ () => (
               <Login
                 { ...this.state }
