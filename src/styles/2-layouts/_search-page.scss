@@ -1,0 +1,75 @@
+.search-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding-top: 2rem;
+
+  &-filter {
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+
+    label {
+
+      input {
+        height: 2.5rem;
+        padding: 0.3rem 1rem;
+        border: 0.15rem solid $white-color;
+        border-bottom-left-radius: 2rem;
+        border-top-left-radius: 2rem;
+        font-size: 1.5rem;
+
+        &:focus {
+          outline: none;
+          box-shadow: 0 0 0.5rem $third-color;
+        }
+      }
+    }
+
+    button {
+      height: 2.5rem;
+      color: $white-color;
+      background-color: $third-color;
+      font-size: 1.5rem;
+      padding: 0 0.5rem;
+      border: 0.1rem solid $third-color;
+      border-bottom-right-radius: 2rem;
+      border-top-right-radius: 2rem;
+      
+      &:hover {
+        border: 0.1rem solid $white-color;
+        box-shadow: 0 0 0.5rem $third-color;
+      }
+    }
+  }
+
+  &-albuns {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    row-gap: 1.5rem;
+    width: 100%;
+
+    h2 {
+      color: $white-color;
+      font-size: 1.5rem;
+      padding-top: 1.5rem;
+    }
+  }
+
+  .loading-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2rem;
+    row-gap: 1rem;
+
+    p {
+      font-size: 1.5rem;
+      color: $white-color;
+    }
+  }
+}

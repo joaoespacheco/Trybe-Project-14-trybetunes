@@ -5,6 +5,8 @@ import Header from '../components/Header';
 import { getUser, updateUser } from '../services/userAPI';
 import Loading from '../components/Loading';
 
+const IMAGEM_GENERICA = 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/2048px-Circle-icons-profile.svg.png';
+
 class ProfileEdit extends React.Component {
   constructor() {
     super();
@@ -90,66 +92,75 @@ class ProfileEdit extends React.Component {
     return (
       <div data-testid="page-profile-edit">
         <Header { ...this.props } />
-        {loadingEdit ? (
-          <Loading />
-        ) : (
-          <section>
-            <label htmlFor="image-input">
-              <p>Imagem:</p>
-              <input
-                name="image"
-                value={ image }
-                id="image-input"
-                type="url"
-                data-testid="edit-input-image"
-                onChange={ this.handleChanger }
-              />
-            </label>
-            <label htmlFor="name-input">
-              <p>Nome:</p>
-              <input
-                name="name"
-                value={ name }
-                id="name-input"
-                type="text"
-                data-testid="edit-input-name"
-                onChange={ this.handleChanger }
-              />
-            </label>
-            <label htmlFor="email-input">
-              <p>Email:</p>
-              <input
-                name="email"
-                value={ email }
-                id="email-input"
-                type="email"
-                data-testid="edit-input-email"
-                onChange={ this.handleChanger }
-              />
-            </label>
-            <label htmlFor="description-input">
-              <p>Descrição:</p>
-              <textarea
-                name="description"
-                value={ description }
-                id="description-input"
-                type="text"
-                data-testid="edit-input-description"
-                onChange={ this.handleChanger }
-              />
-            </label>
-            <br />
-            <br />
-            <button
-              data-testid="edit-button-save"
-              type="button"
-              disabled={ statusOfButton }
-              onClick={ this.saveOnStorage }
-            >
-              Salvar
-            </button>
-          </section>
-        )}
+        <main className="profile-edit-container">
+          {loadingEdit ? (
+            <Loading />
+          ) : (
+            <div className="profile-edit-content">
+              <div className="profile-edit-content-image">
+                <img src={ image || IMAGEM_GENERICA } alt="Foto de perfil" />
+              </div>
+              <div className="profile-edit-content-form">
+                <label htmlFor="image-input">
+                  <p>Imagem:</p>
+                  <input
+                    name="image"
+                    value={ image }
+                    id="image-input"
+                    type="url"
+                    data-testid="edit-input-image"
+                    placeholder="Digite a url da sua imagem..."
+                    onChange={ this.handleChanger }
+                  />
+                </label>
+                <label htmlFor="name-input">
+                  <p>Nome:</p>
+                  <input
+                    name="name"
+                    value={ name }
+                    id="name-input"
+                    type="text"
+                    data-testid="edit-input-name"
+                    placeholder="Digite seu nome..."
+                    onChange={ this.handleChanger }
+                  />
+                </label>
+                <label htmlFor="email-input">
+                  <p>Email:</p>
+                  <input
+                    name="email"
+                    value={ email }
+                    id="email-input"
+                    type="email"
+                    placeholder="Digite seu email..."
+                    data-testid="edit-input-email"
+                    onChange={ this.handleChanger }
+                  />
+                </label>
+                <label htmlFor="description-input">
+                  <p>Descrição:</p>
+                  <textarea
+                    name="description"
+                    value={ description }
+                    id="description-input"
+                    type="text"
+                    placeholder="Digite uma breve descrição sobre você..."
+                    data-testid="edit-input-description"
+                    onChange={ this.handleChanger }
+                  />
+                </label>
+                <button
+                  data-testid="edit-button-save"
+                  type="button"
+                  disabled={ statusOfButton }
+                  onClick={ this.saveOnStorage }
+                >
+                  Salvar
+                </button>
+              </div>
+            </div>
+          )}
+        </main>
         {redirectStatus && <Redirect to="/profile" />}
       </div>
     );

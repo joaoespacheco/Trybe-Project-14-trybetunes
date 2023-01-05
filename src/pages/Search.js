@@ -18,8 +18,7 @@ class Search extends React.Component {
   }
 
   componentDidMount() {
-    const { onLoading, buttonReset } = this.props;
-    onLoading(true);
+    const { buttonReset } = this.props;
     buttonReset();
   }
 
@@ -40,7 +39,7 @@ class Search extends React.Component {
     if (albuns.length > 0) {
       const { artistSearch } = this.state;
       return (
-        <h2>{`Resultado de álbuns de: ${artistSearch}`}</h2>
+        <h2>{`Resultado de busca para: ${artistSearch}`}</h2>
       );
     }
     return (
@@ -54,8 +53,8 @@ class Search extends React.Component {
     return (
       <div data-testid="page-search">
         <Header { ...this.props } />
-        {!loadingSearch ? (
-          <div>
+        <main className="search-container">
+          <div className="search-container-filter">
             <label htmlFor="input-search">
               <input
                 name="searchInput"
@@ -75,11 +74,19 @@ class Search extends React.Component {
               Pesquisar
             </button>
           </div>
-        ) : (
-          <Loading />
-        )}
-        { statusOfSearch ? this.searchResponse(albumSearch) : '' }
-        { statusOfSearch ? <Albuns artistAlbuns={ albumSearch } /> : '' }
+          {!loadingSearch ? (
+            <div className="search-container-albuns">
+              { statusOfSearch ? (
+                this.searchResponse(albumSearch)
+              ) : (
+                <h2>Nenhuma busca realizada até o momento</h2>
+              )}
+              { statusOfSearch ? <Albuns artistAlbuns={ albumSearch } /> : '' }
+            </div>
+          ) : (
+            <Loading />
+          )}
+        </main>
       </div>
     );
   }

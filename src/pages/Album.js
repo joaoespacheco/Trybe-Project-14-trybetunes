@@ -28,7 +28,7 @@ class Album extends React.Component {
     onLoading(true);
     this.storageGetMusic(id);
     this.storageGetFavorite();
-    this.modifyLoadingAlbum(false);
+    window.scrollTo(0, 0);
   }
 
   storageGetMusic = async (id) => {
@@ -38,7 +38,7 @@ class Album extends React.Component {
 
   storageGetFavorite = async () => {
     const favorites = await getFavoriteSongs();
-    this.setState({ favoriteSongs: favorites });
+    this.setState({ favoriteSongs: favorites }, () => this.modifyLoadingAlbum(false));
   }
 
   modifyLoadingAlbum = (status) => {
@@ -71,29 +71,29 @@ class Album extends React.Component {
     return (
       <div data-testid="page-album">
         <Header { ...this.props } />
-        {loadingAlbum ? (
-          <Loading />
-        ) : (
-          <section>
-            {album.length > 0 ? (
-              <section>
-                <div>
+        <main className="album-container">
+          {loadingAlbum || album.length === 0 ? (
+            <Loading />
+          ) : (
+            <section className="album-container-content">
+              <div className="album-content-informations">
+                <div className="album-informations-image">
                   <img src={ album[0].artworkUrl100 } alt="Capa do Album" />
-                  <h3 data-testid="album-name">{album[0].collectionName}</h3>
+                </div>
+                <div className="album-informations-description">
+                  <h2 data-testid="album-name">{album[0].collectionName}</h2>
                   <h3 data-testid="artist-name">{album[0].artistName}</h3>
                 </div>
-                <MusicCard
-                  { ...this.state }
-                  albumStatusLoading={ this.modifyLoadingAlbum }
-                  favoritesChange={ this.favoritesChange }
-                  songs={ album.slice(1) }
-                />
-              </section>
-            ) : (
-              ''
-            )}
-          </section>
-        )}
+              </div>
+              <MusicCard
+                { ...this.state }
+                albumStatusLoading={ this.modifyLoadingAlbum }
+                favoritesChange={ this.favoritesChange }
+                songs={ album.slice(1) }
+              />
+            </section>
+          )}
+        </main>
       </div>
     );
   }

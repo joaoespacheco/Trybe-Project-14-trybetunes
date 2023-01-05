@@ -5,10 +5,25 @@ class MusicCard extends React.Component {
   render() {
     const { songs, favoritesChange, favoriteSongs } = this.props;
     return (
-      <div>
+      <div className="album-content-cards">
         {songs.map(({ trackName, previewUrl, trackId }) => (
           <div key={ trackId }>
-            <p>{trackName}</p>
+            <div>
+              <p>{trackName}</p>
+              <label htmlFor={ trackId }>
+                <input
+                  id={ trackId }
+                  data-testid={ `checkbox-music-${trackId}` }
+                  name={ trackId }
+                  type="checkbox"
+                  onChange={ (event) => favoritesChange(event) }
+                  checked={ favoriteSongs.some(
+                    (song) => Number(song.trackId) === trackId,
+                  ) }
+                />
+                <p>Favoritar</p>
+              </label>
+            </div>
             <audio data-testid="audio-component" src={ previewUrl } controls>
               <track kind="captions" />
               O seu navegador não suporta o elemento
@@ -16,19 +31,6 @@ class MusicCard extends React.Component {
               <code>audio</code>
               .
             </audio>
-            <label htmlFor={ trackId }>
-              Favorita
-              <input
-                id={ trackId }
-                data-testid={ `checkbox-music-${trackId}` }
-                name={ trackId }
-                type="checkbox"
-                onChange={ (event) => favoritesChange(event) }
-                checked={ favoriteSongs.some(
-                  (song) => Number(song.trackId) === trackId,
-                ) }
-              />
-            </label>
           </div>
         ))}
       </div>

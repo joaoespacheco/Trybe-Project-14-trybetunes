@@ -5,6 +5,8 @@ import Header from '../components/Header';
 import Loading from '../components/Loading';
 import { getUser } from '../services/userAPI';
 
+const IMAGEM_GENERICA = 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Circle-icons-profile.svg/2048px-Circle-icons-profile.svg.png';
+
 class Profile extends React.Component {
   constructor() {
     super();
@@ -38,31 +40,42 @@ class Profile extends React.Component {
     return (
       <div data-testid="page-profile">
         <Header { ...this.props } />
-        {loadingProfile ? (
-          <Loading />
-        ) : (
-          <section>
-            <div>
-              <img
-                src={ image }
-                alt="Foto do usúario"
-                data-testid="profile-image"
-              />
-              <h3>
-                {name}
-              </h3>
-              <h3>
-                {email}
-              </h3>
-              <h4>
-                {description}
-              </h4>
+        <main className="profile-container">
+          {loadingProfile ? (
+            <Loading />
+          ) : (
+            <div className="profile-container-content">
+              <div className="profile-image-content">
+                <img
+                  src={ image || IMAGEM_GENERICA }
+                  alt="Foto do usúario"
+                  data-testid="profile-image"
+                />
+              </div>
+              <div className="profile-informations-content">
+                <div>
+                  <h3>
+                    <span>Nome:</span>
+                    {' '}
+                    {name}
+                  </h3>
+                  <h3>
+                    <span>Email:</span>
+                    {' '}
+                    {email || 'email não cadastrado'}
+                  </h3>
+                  <div>
+                    <p>Sobre mim:</p>
+                    <h4>{description || 'Não há descrição sobre você'}</h4>
+                  </div>
+                </div>
+                <Link to="/profile/edit">
+                  <div className="profile-edit">Editar perfil</div>
+                </Link>
+              </div>
             </div>
-            <div>
-              <Link to="/profile/edit">Editar perfil</Link>
-            </div>
-          </section>
-        )}
+          )}
+        </main>
       </div>
     );
   }

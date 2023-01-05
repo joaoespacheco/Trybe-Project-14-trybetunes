@@ -1,0 +1,48 @@
+.not-found-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 1rem $third-color;
+    width: 50rem;
+    height: 15rem;
+    row-gap: 2rem;
+
+    &:hover {
+      box-shadow: 0 0 2rem $third-color;
+
+      h1 {
+        text-shadow: 0 0 0.5rem $third-color;
+      }
+    }
+
+    h1 {
+      font-weight: 600;
+      color: $white-color;
+      font-size: 3rem;
+    }
+
+    button {
+      font-size: 2rem;
+      font-weight: 600;
+      background-color: $third-color;
+      border-radius: 1rem;
+      border: .1rem solid $third-color;
+      color: $white-color;
+      padding: 0.5rem 1rem;
+      width: 60%;
+
+      &:hover {
+        border: .1rem solid $white-color;
+      }
+    }
+
+  }
+
+}

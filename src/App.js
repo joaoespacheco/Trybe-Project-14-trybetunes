@@ -107,16 +107,18 @@ class App extends React.Component {
           />
           <Route
             path="/"
+            exact
             render={ () => (
               <Login
                 { ...this.state }
                 onInputChange={ this.handleChanger }
                 onLoading={ this.modifyLoadingState }
+                modifyState={ this.modifyState }
               />
             ) }
           />
+          <Route path="*" component={ NotFound } />
         </Switch>
-        <Route path="*" component={ NotFound } />
       </BrowserRouter>
     );
   }
