@@ -1,32 +1,32 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
 
 class NotFound extends React.Component {
-  changePath = (pathname) => {
-    const { history } = this.props;
-    history.push(pathname);
+  constructor() {
+    super();
+
+    this.state = {
+      redirectStatus: false,
+    };
   }
 
   render() {
-    console.log(this.props);
+    const { redirectStatus } = this.state;
     return (
       <main data-testid="page-not-found" className="not-found-container">
         <div className="not-found-container-content">
           <h1>Desculpe, página não encontrada</h1>
           <button
             type="button"
-            onClick={ () => this.changePath('/') }
+            onClick={ () => this.setState(({ redirectStatus: true })) }
           >
             Retornar para tela de login
           </button>
+          {redirectStatus && <Redirect to="/" />}
         </div>
       </main>
     );
   }
 }
-
-NotFound.propTypes = {
-  history: PropTypes.objectOf(PropTypes.any).isRequired,
-};
 
 export default NotFound;

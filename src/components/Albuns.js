@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 class Albuns extends React.Component {
   render() {
     const { artistAlbuns } = this.props;
-    console.log(artistAlbuns);
     return (
       <section className="cards-container">
         {artistAlbuns.map(
