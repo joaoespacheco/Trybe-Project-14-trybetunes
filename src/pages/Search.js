@@ -79,7 +79,7 @@ class Search extends React.Component {
               { statusOfSearch ? (
                 this.searchResponse(albumSearch)
               ) : (
-                <h2>Não foram realizadas buscas até o momento</h2>
+                <h2>Nenhuma busca realizada até o momento</h2>
               )}
               { statusOfSearch ? <Albuns artistAlbuns={ albumSearch } /> : '' }
             </div>
