@@ -25,6 +25,9 @@ Todos os dados utilizados das musicas foram obtidos através da <strong>API da A
 <details>
 <summary><strong>Desempenho</strong></summary>
 Aprovado com 100% de desempenho em todos os requisitos
+
+![image](https://user-images.githubusercontent.com/99846604/211170876-5e800fa2-f7d5-4f97-a45c-f1f26c7988a2.png)
+
 </details>
 
 <details>
@@ -53,7 +56,27 @@ Aprovado com 100% de desempenho em todos os requisitos
 
 <details>
 <summary><strong>Visualizar projeto</strong></summary>
-:construction: Área em construção ! :construction:
+
+### Tela de login:
+
+![Trybetune - tela de login](https://user-images.githubusercontent.com/99846604/211170972-71f218cb-59f0-40c0-b15d-3e0b0b07b526.png)
+
+### Tela de busca:
+
+![trybetunes - tela de busca](https://user-images.githubusercontent.com/99846604/211171066-fd63e999-3528-4a98-a771-f9c7df23cce1.png)
+
+### Tela de albúms:
+
+![trybetunes - tela do album png](https://user-images.githubusercontent.com/99846604/211171119-6826c420-66d2-4453-8860-2281d6440764.png)
+
+### Tela de favoritos:
+
+![trybetunes - tela de favoritos](https://user-images.githubusercontent.com/99846604/211171151-b11e94ac-e649-4ffd-ae17-e8939b312b07.png)
+
+### Tela de perfil:
+
+![trybetunes - tela de perfil](https://user-images.githubusercontent.com/99846604/211171199-e11fb49e-fc66-463c-bddd-85bfd1e623e4.png)
+
 </details>
 </br>
 
@@ -68,6 +91,7 @@ Aprovado com 100% de desempenho em todos os requisitos
 ## 🧰 Ferramentas:
 * HTML
 * CSS
+  * SASS
 * JavaScript
 * React
   * React Router
