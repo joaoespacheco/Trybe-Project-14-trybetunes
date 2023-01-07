@@ -80,6 +80,21 @@ Aprovado com 100% de desempenho em todos os requisitos
 </details>
 </br>
 
+## ⚙️ Execução
+
+Faça o clone deste repositório com o seguinte comando:
+
+        git clone git@github.com:joaoespacheco/Trybe-Project-14-trybetunes.git
+
+Para exercutar o projeto utilize o comando abaixo para instalar as dependências:
+
+        npm install
+
+Inicie a aplicação com o comando abaixo:
+
+        npm start
+</br>
+
 ## 🤹🏽 Habilidades Desenvolvidas:
 * Desenvolver uma aplicação react
 * Utilizar cilos de vida de um componente
