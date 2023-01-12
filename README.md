@@ -55,7 +55,7 @@ Aprovado com 100% de desempenho em todos os requisitos
 </details>
 
 <details>
-<summary><strong>Visualizar projeto</strong></summary>
+<summary><strong>Imagens do projeto</strong></summary>
 
 ### Tela de login:
 
@@ -78,6 +78,11 @@ Aprovado com 100% de desempenho em todos os requisitos
 ![trybetunes - tela de perfil](https://user-images.githubusercontent.com/99846604/211171199-e11fb49e-fc66-463c-bddd-85bfd1e623e4.png)
 
 </details>
+
+</br>
+
+### [👨‍💻 Clique aqui para acessar o projeto em seu navegador](https://trybetunes-joaoespacheco.vercel.app/) 
+
 </br>
 
 ## ⚙️ Execução
@@ -86,7 +91,7 @@ Faça o clone deste repositório com o seguinte comando:
 
         git clone git@github.com:joaoespacheco/Trybe-Project-14-trybetunes.git
 
-Para exercutar o projeto utilize o comando abaixo para instalar as dependências:
+Dentro da pasta raiz do projeto, instale as dependências com o seguinte comando:
 
         npm install
 
